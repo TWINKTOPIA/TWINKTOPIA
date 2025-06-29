@@ -38,7 +38,7 @@
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
     }
-    .tracklist, .about, .media, .game, .fanart {
+    .tracklist, .about, .game {
       margin: 40px auto;
       max-width: 700px;
       padding: 20px;
@@ -46,7 +46,7 @@
       background: rgba(255, 255, 255, 0.1);
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }
-    .tracklist h2, .about h2, .media h2, .game h2, .fanart h2 {
+    .tracklist h2, .about h2, .game h2 {
       margin-bottom: 20px;
     }
     .tracklist ol {
@@ -57,20 +57,11 @@
       margin: 10px 0;
       font-size: 1.1rem;
     }
-    .media iframe {
-      width: 100%;
-      height: 315px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
     .about p {
       font-size: 1rem;
       line-height: 1.6;
     }
-    .game button,
-    .fanart button,
-    .fanart input[type="file"] {
+    .game button {
       background-color: #ff6ec4;
       color: #fff;
       font-size: 1rem;
@@ -80,14 +71,11 @@
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
       outline: none;
-      margin-top: 10px;
     }
-    .game button:hover,
-    .fanart button:hover {
+    .game button:hover {
       background-color: #e457a3;
     }
-    .game button:active,
-    .fanart button:active {
+    .game button:active {
       transform: scale(0.95);
     }
     #result, #explanation {
@@ -110,12 +98,6 @@
       font-size: 1.1rem;
       color: #ffb3f6;
     }
-    .fanart canvas {
-      margin-top: 20px;
-      max-width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 0 15px rgba(255,255,255,0.3);
-    }
     footer {
       margin: 50px 0 20px;
       font-size: 0.9rem;
@@ -134,12 +116,12 @@
   <header>
     <h1>TWINKTOPIA</h1>
     <p>Najbardziej queerowy album klubowy. Brokat, basy, złamane serca i poppersy. Już dostępny tam, gdzie streamujesz marzenia.</p>
-    <img src="https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-dd08-620a-898e-594edcc2e7ef/raw?se=2025-06-27T14%3A56%3A45Z&sp=r&sv=2024-08-04&sr=b&scid=5dae3add-bd02-553e-94a6-7a36e14df8ee&skoid=0a4a0f0c-99ac-4752-9d87-cfac036fa93f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-27T05%3A55%3A35Z&ske=2025-06-28T05%3A55%3A35Z&sks=b&skv=2024-08-04&sig=9saqpj7yY02afdsXow9xW4CERvg5faBry2eQ5RIfEKw%3D" alt="Twinktopia Album Cover" class="cover" />
+    <img src="https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-dd08-620a-898e-594edcc2e7ef/raw" alt="Twinktopia Album Cover" class="cover" />
   </header>
 
   <section class="about">
     <h2>O albumie</h2>
-    <p><strong>Twinktopia</strong> to elektroniczny manifest hedonizmu. Zanurz się w dźwiękach house’u, trance’u i futurystycznego popu. To ścieżka dźwiękowa do podróży przez queerową noc – od pierwszego beatu po ostatnie drżenie subwoofera. Każdy utwór niesie ze sobą wspomnienie imprezy, flirtu czy samotnego powrotu z klubu o świcie.</p>
+    <p><strong>Twinktopia</strong> to elektroniczny manifest hedonizmu. Zanurz się w dźwiękach house’u, trance’u i futurystycznego popu. To ścieżka dźwiękowa do podróży przez queerową noc – od pierwszego beatu po ostatnie drżenie subwoofera. Każdy utwór niesie ze sobą wspomnienie imprezy, flirtu czy samotnego powrotu z klubu o świcie. Idealny dla tych, którzy chcą tańczyć do śmierci… albo przynajmniej do zamknięcia klubu.</p>
   </section>
 
   <section class="tracklist">
@@ -162,11 +144,6 @@
     </ol>
   </section>
 
-  <section class="media">
-    <h2>Posłuchaj & Zobacz</h2>
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-  </section>
-
   <section class="game">
     <h2>Którym utworem z TWINKTOPII jesteś?</h2>
     <button onclick="generateResult()">Odkryj swój track</button>
@@ -174,25 +151,29 @@
     <p id="explanation"></p>
   </section>
 
-  <section class="fanart">
-    <h2>Stwórz swój fan art</h2>
-    <input type="file" id="upload" accept="image/*" />
-    <canvas id="fanArtCanvas" width="600" height="600"></canvas>
-    <button onclick="downloadFanArt()">Pobierz swój fan art</button>
-  </section>
-
   <footer>
-    <p>&copy; 2025 Twinktopia Records – <a href="https://github.com/yourusername/twinktopia" target="_blank">Zobacz na GitHub</a></p>
+    <p>&copy; 2025 Twinktopia Records – <a href="https://github.com/yourusername/twinktopia">Zobacz na GitHub</a></p>
   </footer>
 
   <script>
     function generateResult() {
       const tracks = [
-        "Twink Collapse", "Masc4Masc", "Swipe Me Harder", "Femboy Energy",
-        "Disco Anxiety", "Latex Heartbreak", "Vodka Cranberry Emergency",
-        "iCry on the Dancefloor", "FroYo & Fetish", "Tuck Me Later",
-        "WiFi at the Afterparty", "Chaotic Bottom Energy", "Bootycall Approved", "Slay Me Gently (Outro)"
+        "Twink Collapse",
+        "Masc4Masc",
+        "Swipe Me Harder",
+        "Femboy Energy",
+        "Disco Anxiety",
+        "Latex Heartbreak",
+        "Vodka Cranberry Emergency",
+        "iCry on the Dancefloor",
+        "FroYo & Fetish",
+        "Tuck Me Later",
+        "WiFi at the Afterparty",
+        "Chaotic Bottom Energy",
+        "Bootycall Approved",
+        "Slay Me Gently (Outro)"
       ];
+
       const explanations = {
         "Twink Collapse": "Jesteś eksplozją energii i stylu – każdy twój ruch to totalny collapse norm.",
         "Masc4Masc": "Wyrażasz siebie z dumą i pewnością, balansując na granicy męskości i swobody.",
@@ -209,45 +190,22 @@
         "Bootycall Approved": "Uwielbiasz spontaniczność i niespodzianki – twoje życie to non stop party.",
         "Slay Me Gently (Outro)": "Kończysz z klasą, zostawiając po sobie piękne wspomnienia i mnóstwo miłości."
       };
+
       const random = Math.floor(Math.random() * tracks.length);
-      document.getElementById("result").textContent = `Jesteś totalnie: „${tracks[random]}”`;
-      document.getElementById("explanation").textContent = explanations[tracks[random]];
-      document.getElementById("result").classList.add("visible");
-      document.getElementById("explanation").classList.add("visible");
-    }
+      const track = tracks[random];
+      const resultEl = document.getElementById("result");
+      const explanationEl = document.getElementById("explanation");
 
-    const uploadInput = document.getElementById("upload");
-    const canvas = document.getElementById("fanArtCanvas");
-    const ctx = canvas.getContext("2d");
+      resultEl.textContent = `Jesteś totalnie: „${track}”`;
+      explanationEl.textContent = explanations[track];
 
-    uploadInput.addEventListener("change", function (e) {
-      const file = e.target.files[0];
-      if (!file) return;
+      resultEl.classList.remove("visible");
+      explanationEl.classList.remove("visible");
 
-      const reader = new FileReader();
-      reader.onload = function (event) {
-        const img = new Image();
-        img.onload = function () {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-          ctx.fillStyle = "white";
-          ctx.font = "bold 40px Helvetica Neue";
-          ctx.textAlign = "center";
-          ctx.shadowColor = "#ff6ec4";
-          ctx.shadowBlur = 10;
-          ctx.fillText("TWINKTOPIA", canvas.width / 2, canvas.height - 40);
-        };
-        img.src = event.target.result;
-      };
-      reader.readAsDataURL(file);
-    });
-
-    function downloadFanArt() {
-      const link = document.createElement("a");
-      link.download = "twinktopia_fanart.png";
-      link.href = canvas.toDataURL();
-      link.click();
+      setTimeout(() => {
+        resultEl.classList.add("visible");
+        explanationEl.classList.add("visible");
+      }, 50);
     }
   </script>
 </body>
